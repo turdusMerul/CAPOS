@@ -10,32 +10,32 @@
 </head>
 
 <body>
-    <header
-        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <svg width="100%" height="30">
-                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-weight="bold" font-size="30">CAPOS</text>    
-            </svg>
-        </a>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg width="100%" height="30">
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-weight="bold" font-size="30" style="fill:white">CAPOS</text>
+                    </svg>
+                </a>
 
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Цены</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Контакты</a></li>
-        </ul>
-
-        <div class="col-md-3 text-end" width = 100%>
-            <button type="button" class="btn btn-outline-primary me-2">Войти</button>
-            <button type="button" class="btn btn-primary">Регистрация</button>
+                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/" class="nav-link px-2 text-secondary">Главная</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Цены</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Контакты</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
-    <main class="text-center" height = "100%">
+
+    <main class="text-center" height="100%">
         {% block main %}{% endblock %}
     </main>
 
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+
+    <footer class="bg-dark d-flex flex-wrap justify-content-between align-items-center py-3 border-top" style = "position: fixed; left: 0; bottom: 0; padding: 10px; color: #fff; width: 100%;">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24">
