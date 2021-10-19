@@ -89,9 +89,60 @@ select {
 
 
 header {
-    height: 40px;
-    max-width: 1528px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(204,34,34);
+  height: 40px;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(204,34,34);
 }
+
+.project-name {
+  font-size: 21px;
+  font-family: Arial;
+  padding-left: 20px;
+  color:rgb(255, 255, 255);  
+  padding-top: 4px;
+}
+
+.load-file {
+  font-weight: 500;
+  font-size: 21px;
+  font-family: Arial;
+  padding-left: 320px;
+  margin-top: -780px;
+  color:rgb(255, 255, 255);  
+}
+
+#project-full-name {
+  font-weight: 500;
+}
+
+main {
+  max-width: 800px;
+  margin-left: 960px;
+	margin-top: 42px;
+  margin-bottom: 42px;
+	border-top: 800px solid rgb(204,34,34);
+}
+
+footer {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+	margin-top: 0px;
+	border: none;
+	border-top: 40px solid rgb(204,34,34);
+}
+
+.footer-name {
+  font-size: 15px;
+  font-family: Arial;
+  padding-left: 20px;
+  margin-top: -30px;
+  font-weight: 500;
+  color:rgb(255, 255, 255);  
+}
+
+nav{
+}
+
