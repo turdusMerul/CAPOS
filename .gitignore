@@ -114,4 +114,7 @@ dmypy.json
 .pyre/
 
 # Audio-files
-.wav
+*.wav
+
+# VS Code
+.vscode

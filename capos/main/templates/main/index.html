@@ -7,5 +7,31 @@
 
 
 {% block main %}
+    <div class="row row-offcanvas row-offcanvas-right">
 
+        <div class="col-xs-12">
+            <div class="jumbotron">
+                <h2>Conferences auto-protocoling online system</h2>
+                <div>
+                    Онлайн-система автопротоколирования конференций
+                </div>
+                <br>
+                <form form enctype="multipart/form-data" method="post" action="/">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label class="custom-file" for="id_audiofile">
+                        {{ form.audiofile }}
+                        <span class="custom-file-control">
+                            Выберите аудиофайл
+                        </span>
+                      </label>
+                      <small id="fileHelpId" class="form-text text-muted">На данный момент поддерживаются только файлы в WAV формате</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Транскрибировать файл</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
 {% endblock %}
