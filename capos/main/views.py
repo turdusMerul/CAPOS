@@ -3,6 +3,7 @@ import re
 from docx import Document
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.conf import settings
 from .forms import AudioForm
 from .models import Audio
 from .transcriber import transcribe
@@ -16,7 +17,7 @@ def index(request):
             file_name = str(file)
             file.save()
             text = transcribe(str(file))
-            os.remove(str(file))
+            os.remove(str(f"{settings.MEDIA_ROOT}/{file}"))
             doc = Document()
             doc.add_paragraph(text.lower())
             file.delete()

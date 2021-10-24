@@ -3,6 +3,7 @@ from os import path
 from math import ceil
 import speech_recognition as SR
 from pydub import AudioSegment
+from django.conf import settings
 
 
 recog = SR.Recognizer()
@@ -21,6 +22,8 @@ def transcribe(file_path):
     MAX_SEGMENT_SIZE = 10485760
     OVERLAP_TIME = 500
 
+
+    file_path = f"{settings.MEDIA_ROOT}/{file_path}"
     audioFile = AudioSegment.from_file(file_path, format=file_path.split(".")[1])
     audioDur = len(audioFile)
     fileSize = path.getsize(file_path)
