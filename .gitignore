@@ -115,6 +115,7 @@ dmypy.json
 
 # Audio-files
 *.wav
+*.mp3
 
 # VS Code
 .vscode

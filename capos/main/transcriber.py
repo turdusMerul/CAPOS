@@ -1,29 +1,29 @@
-from os.path import getsize
+import io
+from os import path
 from math import ceil
 import speech_recognition as SR
 from pydub import AudioSegment
-import io
 
 
 recog = SR.Recognizer()
 
 
-def tryToTranscribe(audio_content):
+def tryToTranscribe(audio_content, trying = 0):
     try:
         return str(recog.recognize_google(audio_content, language='ru'))
     except:
-        tryToTranscribe(audio_content)
+        if trying == 2: return " [ ДАННЫЙ УЧАСТОК ТРАНСКРИБИРОВАТЬ НЕ УДАЛОСЬ ] "
+        print(f"[INFO] Попытка {trying+2}")
+        tryToTranscribe(audio_content, trying + 1)
 
 
 def transcribe(file_path):
-    print(f"[INFO] File path is: {file_path}")
     MAX_SEGMENT_SIZE = 10485760
     OVERLAP_TIME = 500
 
-
-    audioFile = AudioSegment.from_file(file_path)
+    audioFile = AudioSegment.from_file(file_path, format=file_path.split(".")[1])
     audioDur = len(audioFile)
-    fileSize = getsize(file_path)
+    fileSize = path.getsize(file_path)
     partsNum = ceil(fileSize / MAX_SEGMENT_SIZE)
     segmentDur = audioDur / partsNum
     sSegmentTime = fSegmentTime = 0
@@ -34,15 +34,10 @@ def transcribe(file_path):
         fSegmentTime += segmentDur
         bytes = io.BytesIO()
         audioFile[sSegmentTime:fSegmentTime].export(bytes, format="wav")
-        print(f"[INFO] Сегмент {i}/{partsNum} выделен")
         bytes.seek(0)
         with SR.AudioFile(bytes) as source:
             audio_content = recog.record(source)
-        result += tryToTranscribe(audio_content)
-        print(f"[INFO] Сегмент {i}/{partsNum} транскрибирован")
+        resp = tryToTranscribe(audio_content)
+        result += " " + (resp if resp else "___")
 
-        if i == 3: break
     return(result)
-
-if __name__ == "__main__":
-    print(transcribe("dataset/1.wav"))
